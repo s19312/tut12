@@ -19,9 +19,7 @@ namespace WebApplication1.Configuration
 
             builder.Property(e => e.DateFinished).HasColumnType("date");
 
-            builder.Property(e => e.Notes).IsRequired().HasMaxLength(255).HasDefaultValue("None");
-
-            
+            builder.Property(e => e.Notes).IsRequired().HasMaxLength(255).HasDefaultValue("None"); 
 
         }
     }
