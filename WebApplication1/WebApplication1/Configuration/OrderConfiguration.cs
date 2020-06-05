@@ -15,14 +15,13 @@ namespace WebApplication1.Configuration
             builder.HasKey(e => e.IdOrder)
                   .HasName("Order_pk");
 
-            builder.Property(e => e.DateAccepted).HasColumnName("date")
-                  .IsRequired();
+            builder.Property(e => e.DateAccepted).HasColumnType("date");
 
+            builder.Property(e => e.DateFinished).HasColumnType("date");
 
-            builder.Property(e => e.DateFinished)
-                      .IsRequired();
+            builder.Property(e => e.Notes).IsRequired().HasMaxLength(255).HasDefaultValue("None");
 
-            builder.Property(e => e.Notes).IsRequired().HasMaxLength(255);
+            
 
         }
     }

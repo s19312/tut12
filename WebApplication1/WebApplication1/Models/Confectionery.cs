@@ -9,7 +9,7 @@ namespace WebApplication1.Models
     {
         public int IdConfectionery { get; set; }
         public string Name { get; set; }
-        public string Typ { get; set; }
-        public int PricePerlte { get; set; }
+        public string Type { get; set; }
+        public double PricePerItem { get; set; }
     }
 }

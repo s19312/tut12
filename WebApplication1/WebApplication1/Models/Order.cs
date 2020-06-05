@@ -12,6 +12,8 @@ namespace WebApplication1.Models
         public DateTime DateFinished { get; set; }
         public string Notes { get; set; }
         public int IdClient { get; set; }
-        public int IDEmployee { get; set; }
+        public int IdEmployee { get; set; }
+
+
     }
 }
