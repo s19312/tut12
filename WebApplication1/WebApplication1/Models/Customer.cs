@@ -7,8 +7,10 @@ namespace WebApplication1.Models
 {
     public partial class Customer
     {
-        public int IdClient { get; set; }
+        public int IdCustomer { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+
+        
     }
 }

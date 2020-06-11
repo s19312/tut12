@@ -19,6 +19,9 @@ namespace WebApplication1.Configuration
 
             builder.Property(e => e.DateFinished).HasColumnType("date");
 
+            builder.HasOne(e => e.IdCustomerNavigation).WithMany().HasForeignKey(e => e.IdCustomer).HasConstraintName("idCustomer");
+            builder.HasOne(e => e.IdEmployeeNavigation).WithMany().HasForeignKey(e => e.IdEmployee).HasConstraintName("idEmployee");
+
             builder.Property(e => e.Notes).IsRequired().HasMaxLength(255).HasDefaultValue("None"); 
 
         }

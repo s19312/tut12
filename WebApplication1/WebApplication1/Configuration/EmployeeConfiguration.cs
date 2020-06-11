@@ -12,8 +12,8 @@ namespace WebApplication1.Configuration
     {
         public void Configure(EntityTypeBuilder<Employee> builder)
     {
-        builder.HasKey(e => e.IdEmpl)
-              .HasName("Impl_pk");
+        builder.HasKey(e => e.IdEmployee)
+              .HasName("Employee_pk");
 
         builder.Property(e => e.Name)
               .IsRequired()
@@ -22,6 +22,6 @@ namespace WebApplication1.Configuration
         builder.Property(e => e.Surname)
                   .IsRequired()
                   .HasMaxLength(60);
+        }
     }
-}
 }

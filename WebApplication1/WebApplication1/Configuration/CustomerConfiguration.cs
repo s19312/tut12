@@ -12,7 +12,7 @@ namespace WebApplication1.Configuration
     {
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
-            builder.HasKey(e => e.IdClient)
+            builder.HasKey(e => e.IdCustomer)
                   .HasName("Customer_pk");
 
             builder.Property(e => e.Name)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,9 +8,12 @@ namespace WebApplication1.Models
 {
     public class Confectionery_Order
     {
-        public int IdConfection { get; set; }
-        public int Order { get; set; }
+        public  int IdConfectionery { get; set; }
+        public int IdOrder { get; set; }
         public int Quantity { get; set; }
         public string Notes { get; set; }
+
+        public virtual Order IdOrderNavigation { get; set; }
+        public virtual Confectionery IdConfectioneryNavigation { get; set; }
     }
 }
