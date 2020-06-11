@@ -21,60 +21,61 @@ namespace tut12.Services
         }
         public List<GetOrderByName> GetOrder(string name)
         {
-            //var confectioneriesList = new List<Confectionery>();
-            
-            //if (name != null)
-            //{
-            //    idCustomer = _context.Customer.Where(c => c.Name == name).Select(c => c.IdCustomer).FirstOrDefault();
-            //    if (idCustomer == 0)
-            //    {
-            //        throw new CustomerNotFoundException();
-            //    }
-                
-            //    var list = _context.Confectionery_Order
-            //    .Join(_context.Order, co => co.IdOrder, o => o.IdOrder, (co, o) => new { c_order = co, order = o })
-            //    .Join(_context.Confectionery, co => co.c_order.IdConfectionery, c => c.IdConfectionery, (co, c) => new { c_order = co, confectionery = c })
-            //    .Where(e => e.c_order.order.IdCustomer == idCustomer && e.c_order.c_order.IdOrder == e.c_order.order.IdOrder)          
-            //    .ToList();
+            var confectioneriesList = new List<Confectionery>();
 
-          
-            //    foreach (var res in list)
-            //    {
-            //        GetOrderByName info = new GetOrderByName();
-            //        info.IdOrder = res.c_order.c_order.IdOrder;
-            //        info.IdCustomer = res.c_order.order.IdCustomer;
-            //        info.DateAccepted = res.c_order.order.DateAccepted;
-            //        info.DateFinished = res.c_order.order.DateFinished;
-            //        info.ConfectioneryName = res.confectionery.Name;
-            //        info.ConfectioneryType = res.confectionery.Type;
-            //        info.PricePerItem = res.confectionery.PricePerItem;
-            //        info.Quantity = res.c_order.c_order.Quantity;
-            //        info.OrderNotes = res.c_order.order.Notes;
-            //        result.Add(info);
-            //    }
-            //}
-            //else {
-                
-            //    var list = _context.Confectionery_Order
-            //    .Join(_context.Order, co => co.IdOrder, o => o.IdOrder, (co, o) => new { c_order = co, order = o })
-            //    .Join(_context.Confectionery, co => co.c_order.IdConfectionery, c => c.IdConfectionery, (co, c) => new { c_order = co, confectionery = c })
-            //    .ToList();
+            if (name != null)
+            {
+                idCustomer = _context.Customer.Where(c => c.Name == name).Select(c => c.IdCustomer).FirstOrDefault();
+                if (idCustomer == 0)
+                {
+                    throw new CustomerNotFoundException();
+                }
 
-            //    foreach (var res in list)
-            //    {
-            //        GetOrderByName info = new GetOrderByName();
-            //        info.IdOrder = res.c_order.c_order.IdOrder;
-            //        info.IdCustomer = res.c_order.order.IdCustomer;
-            //        info.DateAccepted = res.c_order.order.DateAccepted;
-            //        info.DateFinished = res.c_order.order.DateFinished;
-            //        info.ConfectioneryName = res.confectionery.Name;
-            //        info.ConfectioneryType = res.confectionery.Type;
-            //        info.PricePerItem = res.confectionery.PricePerItem;
-            //        info.Quantity = res.c_order.c_order.Quantity;
-            //        info.OrderNotes = res.c_order.order.Notes;
-            //        result.Add(info);
-            //    }            
-            //}
+                var list = _context.Confectionery_Order
+                .Join(_context.Order, co => co.IdOrder, o => o.IdOrder, (co, o) => new { c_order = co, order = o })
+                .Join(_context.Confectionery, co => co.c_order.IdConfectionery, c => c.IdConfectionery, (co, c) => new { c_order = co, confectionery = c })
+                .Where(e => e.c_order.order.IdCustomer == idCustomer && e.c_order.c_order.IdOrder == e.c_order.order.IdOrder)
+                .ToList();
+
+
+                foreach (var res in list)
+                {
+                    GetOrderByName info = new GetOrderByName();
+                    info.IdOrder = res.c_order.c_order.IdOrder;
+                    info.IdCustomer = res.c_order.order.IdCustomer;
+                    info.DateAccepted = res.c_order.order.DateAccepted;
+                    info.DateFinished = res.c_order.order.DateFinished;
+                    info.ConfectioneryName = res.confectionery.Name;
+                    info.ConfectioneryType = res.confectionery.Type;
+                    info.PricePerItem = res.confectionery.PricePerItem;
+                    info.Quantity = res.c_order.c_order.Quantity;
+                    info.OrderNotes = res.c_order.order.Notes;
+                    result.Add(info);
+                }
+            }
+            else
+            {
+
+                var list = _context.Confectionery_Order
+                .Join(_context.Order, co => co.IdOrder, o => o.IdOrder, (co, o) => new { c_order = co, order = o })
+                .Join(_context.Confectionery, co => co.c_order.IdConfectionery, c => c.IdConfectionery, (co, c) => new { c_order = co, confectionery = c })
+                .ToList();
+
+                foreach (var res in list)
+                {
+                    GetOrderByName info = new GetOrderByName();
+                    info.IdOrder = res.c_order.c_order.IdOrder;
+                    info.IdCustomer = res.c_order.order.IdCustomer;
+                    info.DateAccepted = res.c_order.order.DateAccepted;
+                    info.DateFinished = res.c_order.order.DateFinished;
+                    info.ConfectioneryName = res.confectionery.Name;
+                    info.ConfectioneryType = res.confectionery.Type;
+                    info.PricePerItem = res.confectionery.PricePerItem;
+                    info.Quantity = res.c_order.c_order.Quantity;
+                    info.OrderNotes = res.c_order.order.Notes;
+                    result.Add(info);
+                }
+            }
             return result;
         }
 
